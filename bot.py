@@ -39,6 +39,8 @@ except Exception as ap:
 
 @BotzHubUser.on(events.NewMessage(incoming=True, chats=FROM))
 async def sender_bH(event):
+    await event.mark_read()
+    print("message seen")
     for i in TO:
         try:
             await BotzHubUser.send_message(
